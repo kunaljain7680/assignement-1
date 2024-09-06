@@ -51,7 +51,7 @@ body {
   text-align: center;
 }
 
-table {
+/* table {
   margin: 0 auto;
   height: 20vh;
   width: 40vh;
@@ -62,4 +62,39 @@ th,
 td {
   border: 1px solid black;
   border-collapse: collapse;
+} */
+
+/* Table.css */
+
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enable horizontal scrolling for small screens */
+  margin: 20px 0;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  border: 1px solid #ddd; /* Add border to cells */
+}
+
+
+
+.styled-table th {
+  font-weight: bold; /* Make header text bold */
+}
+
+.styled-table td {
+  font-size: 14px; /* Adjust font size for readability */
+}
+
+.styled-table .date-column {
+  text-align: center; /* Center-align dates */
 }

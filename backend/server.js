@@ -19,7 +19,18 @@ const config = {
 };
 
 // Route to fetch top 20 rows from SalesLT.Customer
-app.get('/api/customers', async (req, res) => {
+app.get('/api/top-rows', async (req, res) => {
+    try {
+        const pool = await sql.connect(config);
+        const result = await pool.request().query('SELECT TOP 20 * FROM SalesLT.Customer');
+        console.log(result)
+        res.json(result.recordset);
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+});
+
+app.get('/api/joins', async (req, res) => {
     try {
         const pool = await sql.connect(config);
         const result = await pool.request().query('SELECT TOP 20 * FROM SalesLT.Customer');
@@ -31,5 +42,5 @@ app.get('/api/customers', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}`);
+    console.log(`Server running `);
 });
